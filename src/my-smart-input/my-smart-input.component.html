@@ -1,0 +1,32 @@
+<pre>randomSolution: {{randomSolution}}</pre>
+
+<ng-container *ngIf=randomSolution>
+  <ng-container *ngTemplateOutlet="myInput"></ng-container>
+</ng-container>
+<ng-container *ngIf=!randomSolution>
+  <ng-container *ngTemplateOutlet="myDropdown"></ng-container>
+</ng-container>
+
+<ng-template #myInput>
+  <hr>
+  <h2>#1 Input solution</h2>
+  <div>
+    <label for="input">My Input:</label>
+    <input id="input" type="text" [(ngModel)]="carName" [readonly]="isReadOnly"> 
+    <pre>isReadOnly: {{isReadOnly}}</pre>
+    <hr>
+  </div>
+</ng-template>
+
+<ng-template #myDropdown>
+  <hr>
+  <h2>#2 Dropdown solution</h2>
+  <label for="cars">Choose a car:</label>
+  <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+  <hr>
+</ng-template>
